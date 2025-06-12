@@ -2,6 +2,6 @@
 
 import ExampleComponent from "../../components/ExampleComponent";
 
-export default function ChatBotPage() {
+export default function DashboardPage() {
   return <ExampleComponent />;
 }
