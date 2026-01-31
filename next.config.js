@@ -12,11 +12,11 @@ const nextConfig = {
     webpack: (config) => {
         config.plugins.push(
             new NextFederationPlugin({
-                name: 'Dashboard',
+                name: 'Narrative',
                 filename: 'static/chunks/remoteEntry.js',
                 exposes: {
                     './App': './src/pages/_app.tsx',
-                    './Dashboard': './src/pages/dashboard/index.tsx',
+                    './Narrative': './src/pages/index.tsx',
                 },
                 remotes: {
                     shell: `shell@${process.env.NEXT_PUBLIC_SHELL_REMOTE_URL}/_next/static/chunks/remoteEntry.js`,

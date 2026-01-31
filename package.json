@@ -1,26 +1,42 @@
 {
-  "name": "mfe-dashboard",
+  "name": "mfe-narrative",
   "version": "0.1.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "NEXT_PRIVATE_LOCAL_WEBPACK=true next dev",
-    "build": "NEXT_PRIVATE_LOCAL_WEBPACK=true next build",
-    "start": "NEXT_PRIVATE_LOCAL_WEBPACK=true next start"
+    "dev": "cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true next dev -p 3003",
+    "build": "cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true next build",
+    "start": "cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true next start"
   },
   "dependencies": {
+    "@ffmpeg/core": "^0.12.10",
+    "@ffmpeg/ffmpeg": "^0.12.15",
+    "@ffmpeg/util": "^0.12.2",
+    "@google/genai": "^1.34.0",
+    "@prisma/client": "^5.10.0",
+    "autoprefixer": "^10.4.23",
+    "bcryptjs": "^3.0.3",
+    "idb": "^8.0.3",
+    "jose": "^6.1.3",
+    "jszip": "^3.10.1",
     "lucide-react": "^0.511.0",
+    "mp4-muxer": "^5.2.2",
     "next": "^14.2.29",
+    "prisma": "^5.10.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.22.0",
+    "tailwind-merge": "^2.2.0"
   },
   "devDependencies": {
     "@module-federation/nextjs-mf": "^8.8.30",
     "@types/node": "^20",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
+    "cross-env": "^7.0.3",
     "eslint": "^9",
     "eslint-config-next": "15.1.8",
+    "postcss": "^8.4.35",
     "prettier": "^3.5.3",
     "tailwindcss": "^3.4.1",
     "typescript": "^5",
