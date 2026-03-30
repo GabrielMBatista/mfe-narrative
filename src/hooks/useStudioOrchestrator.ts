@@ -377,7 +377,7 @@ export const useStudioOrchestrator = () => {
         const play = async () => {
             try {
                 if (ctx.state === 'suspended') await ctx.resume();
-                const fetchUrl = source.startsWith('/') ? source : source;
+                const fetchUrl = source.startsWith('/') || source.startsWith('data:') || source.startsWith('http') ? source : `/${source}`;
                 const response = await fetch(fetchUrl);
                 const arrayBuffer = await response.arrayBuffer();
                 const audioBuffer = await ctx.decodeAudioData(arrayBuffer);

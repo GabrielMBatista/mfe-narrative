@@ -287,10 +287,7 @@ export const generateSampleImage = async (prompt: string, seed: string, niche: N
     // For image generation, using Gemini 2.5 Flash Image which is designated for this
     const response = await generateContentCommon(config, 'gemini-2.5-flash-image', fullPrompt, {}, true);
 
-    const parts = config.useProxy
-      ? response.candidates?.[0]?.content?.parts
-      : response.candidates?.[0]?.content?.parts;
-
+    const parts = response.candidates?.[0]?.content?.parts;
     const imagePart = parts?.find((p: any) => p.inlineData && p.inlineData.data);
     const data = imagePart?.inlineData?.data;
 
@@ -340,10 +337,7 @@ export const generateSpeech = async (text: string, voiceName: string = 'Zephyr',
       },
     });
 
-    const base64PCM = config.useProxy
-      ? response.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data
-      : response.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
-
+    const base64PCM = response.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
     if (!base64PCM) throw new Error("Sem dados de áudio.");
 
     return `data:audio/wav;base64,${encodeWAV(base64PCM, 24000)}`;

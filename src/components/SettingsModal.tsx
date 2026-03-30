@@ -28,16 +28,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
 
     // Initialize temp config when niche changes
     useEffect(() => {
-        const currentOverride = authMode === 'db' ?
-            // In DB mode, we would load from dbPersonas in context, but let's assume overrides are synced
-            // Actually context has getEffectiveNiche, but here we want to edit the *raw* values
-            // Currently context.nicheOverrides handles local.
-            // For DB, we query logic is inside context.updateNicheOverride
-            // Let's rely on context.nicheOverrides for now or add a specialized getter if needed.
-            // Simplified: The implementation plan said `nicheOverrides` handles logic.
-            nicheOverrides[selectedNicheId] || {}
-            : nicheOverrides[selectedNicheId] || {};
-
+        const currentOverride = nicheOverrides[selectedNicheId] || {};
         setTempNicheConfig(currentOverride);
     }, [selectedNicheId, nicheOverrides, authMode]);
 
